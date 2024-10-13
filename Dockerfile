@@ -25,7 +25,8 @@ COPY etc/uwsgi/bounca.ini /etc/uwsgi/bounca.ini
 
 RUN mkdir -p /var/log/bounca
 RUN rm /etc/nginx/http.d/default.conf
-COPY --chmod=0755 entrypoint.sh /application/entrypoint.sh
+COPY entrypoint.sh /application/entrypoint.sh
+RUN chmod 755 /application/entrypoint.sh
 
 EXPOSE 8080/tcp
 CMD ["./entrypoint.sh"]
